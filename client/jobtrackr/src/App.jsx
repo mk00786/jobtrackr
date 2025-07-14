@@ -4,6 +4,8 @@ import Dashboard from './pages/Dashboard'
 import AddJob from './pages/AddJob'
 import Stats from './pages/Stats'
 import Layout from './components/Layout'
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path='/add-job' element={<AddJob/>}/>
           <Route path='/stats' element={<Stats/>}/>
         </Route>
+        <Route path='/login' element={<Login/>} />
+        <Route path='/register' element={<Register/>} />
       </Routes>
     </BrowserRouter>
   )
