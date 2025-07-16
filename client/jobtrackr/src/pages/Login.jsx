@@ -46,6 +46,11 @@ const Login = () => {
         <input className='w-full p-2 border rounded mb-2' type='password' name='password' value={formData.password} placeholder='Enter password' onChange={handleChange}/>
         <button className='w-full bg-blue-600 text-white py-2 rounded cursor-pointer' type='submit'>Login</button>
     </form>
+    <p className='mt-4 text-sm'>Don't have any Account?{" "}
+    <span className='text-blue-500 hover:underline cursor-pointer' onClick={()=>navigate('/register')}>
+        Register Here
+    </span>
+    </p>
     </div>
     
   )

@@ -46,6 +46,9 @@ const Register = () => {
             <input className='w-full p-2 border rounded mb-2' placeholder='Enter password' type='password' value={formData.password} name='password' onChange={handleChange} required/>
             <button className='w-full bg-blue-600 text-white py-2 rounded cursor-pointer' type='submit'>Register</button>
         </form>
+        <p className='mt-4 text-sm'>Already have an account?{" "}
+        <span className='text-blue-500 cursor-pointer hover:underline' onClick={()=>navigate('/login')}>Register Here</span>
+        </p>
     </div>
   )
 }
