@@ -1,8 +1,9 @@
 import React from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import api from '../../utils/api'
+
 const Login = () => {
 
     const [formData,setFormData]=useState({
@@ -21,7 +22,7 @@ const Login = () => {
         e.preventDefault();
 
         try{
-            const res=await axios.post('http://localhost:5000/auth/login',formData);
+            const res=await api.post('/auth/login',formData);
             
             if(!formData.email||!formData.password){
                 alert('All fields are required');
