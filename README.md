@@ -21,7 +21,7 @@ A full-stack job tracking app to manage and visualize your job applications — 
 
 ## 🚀 Live Demo
 
-🌐 **Frontend:** [Vercel Link](jobtrackr-git-master-mk00786s-projects.vercel.app)  
+🌐 **Frontend:** [Vercel Link](https://jobtrackr-git-master-mk00786s-projects.vercel.app)  
 🔗 **Backend:** [Render Link](https://jobtrackr-e7ve.onrender.com)
 
 🧪 **Test Credentials**  
