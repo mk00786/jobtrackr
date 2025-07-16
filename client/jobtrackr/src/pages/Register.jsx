@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../utils/api';
 
 const Register = () => {
     const [formData,setFormData]=useState({
@@ -27,7 +27,7 @@ const Register = () => {
         }
 
         try{
-            const res=await axios.post('http://localhost:5000/auth/register',formData);
+            const res=await api.post('/auth/register',formData);
             login(res.data.token);
             alert('Registration Successfull');
             navigate('/');

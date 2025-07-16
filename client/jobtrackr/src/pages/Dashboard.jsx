@@ -3,7 +3,7 @@ import JobCard from '../components/JobCard'
 import { useAuth } from '../context/AuthContext'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import axios from 'axios'
+import api from '../../utils/api';
 
 const Dashboard = () => {
   const {token}=useAuth();
@@ -11,10 +11,9 @@ const Dashboard = () => {
   const [sortOrder,setSortOrder]=useState('newest');
   const [searchTerm,setSearchTerm]=useState('');
 
-  useEffect(()=>{
-    const fetchJobs=async ()=>{
+  const fetchJobs=async ()=>{
       try{
-        let res=await axios.get('http://localhost:5000/auth/jobs',{
+        let res=await api.get('/auth/jobs',{
           headers:{Authorization:`Bearer ${token}`}
         });
         setJobs(res.data);
@@ -24,6 +23,7 @@ const Dashboard = () => {
       }
     }
 
+  useEffect(()=>{
     fetchJobs();
   },[token]);
 
@@ -57,7 +57,7 @@ const Dashboard = () => {
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
       {filteredJobs.length>0?(
         <div>
-          {filteredJobs.map(job=><JobCard key={job._id} job={job}/>)}
+          {filteredJobs.map(job=><JobCard key={job._id} job={job} refreshJobs={fetchJobs} />)}
         </div>
       ):<p>No Jobs Found</p>}
     </div>

@@ -1,8 +1,9 @@
 import React from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useState } from 'react';
-import axios from "axios"
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import api from '../../utils/api';
 
 const AddJob = () => {
   const [formData,setFormData]=useState({
@@ -24,19 +25,19 @@ const AddJob = () => {
     e.preventDefault();
 
     if(!formData.title||!formData.company||!formData.location){
-      alert('All fields are required');
+      toast.error('All fields are required');
       return;
     }
 
     try{
-      const res=await axios.post('http://localhost:5000/auth/jobs',formData,{
+      const res=await api.post('/auth/jobs',formData,{
         headers:{
           Authorization:`Bearer ${token}`
         }
       })
       console.log('Added job:', res.data);
 
-      alert('Job added successfully');
+      toast.success('Job added successfully');
       navigate('/');
 
       setFormData({
@@ -48,7 +49,7 @@ const AddJob = () => {
 
     }catch(err){
       console.error(err);
-      alert('Error adding job');
+      toast.error('Error adding job');
     }
   }
 
