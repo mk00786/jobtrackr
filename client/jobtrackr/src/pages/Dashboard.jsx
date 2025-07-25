@@ -4,15 +4,18 @@ import { useAuth } from '../context/AuthContext'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import api from '../../utils/api';
+import { Loader2 } from 'lucide-react';
 
 const Dashboard = () => {
   const {token}=useAuth();
   const [jobs,setJobs]=useState([]);
   const [sortOrder,setSortOrder]=useState('newest');
   const [searchTerm,setSearchTerm]=useState('');
+  const [loading,setLoading]=useState(false);
 
   const fetchJobs=async ()=>{
       try{
+        setLoading(true);
         let res=await api.get('/auth/jobs',{
           headers:{Authorization:`Bearer ${token}`}
         });
@@ -20,6 +23,8 @@ const Dashboard = () => {
       }catch(err){
         console.error(err);
         alert("Error fetching jobs");
+      }finally{
+        setLoading(false);
       }
     }
 
@@ -35,7 +40,7 @@ const Dashboard = () => {
     if(sortOrder==='az') return a.title.localeCompare(b.title);
     if(sortOrder==='za') return b.title.localeCompare(a.title);
     return 0;
-});
+  });
 
 
   return (
@@ -55,11 +60,13 @@ const Dashboard = () => {
         </select>
       </div>
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-      {filteredJobs.length>0?(
-        <div>
-          {filteredJobs.map(job=><JobCard key={job._id} job={job} refreshJobs={fetchJobs} />)}
-        </div>
-      ):<p>No Jobs Found</p>}
+    {loading?(
+      <div className='flex justify-center mt-10 '>
+        <Loader2  className='animate-spin h-8 w-8 text-blue-600'/>
+      </div>
+    ):(filteredJobs.map(job=>(
+          <JobCard key={job._id} job={job} refreshJobs={fetchJobs} />
+    )))}
     </div>
     </div>
   )
