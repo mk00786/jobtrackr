@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth } from '../context/AuthContext'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useNavigate,useLocation } from 'react-router-dom'
 import api from '../../utils/api'
 import { toast } from 'react-toastify'
@@ -40,6 +40,17 @@ const Login = () => {
             return;
         }
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegex.test(email)){
+            toast.error('Email is invalid');
+            return;
+        } 
+
+        if(password.length<6){
+            toast.error('Password must be of 6 characters');
+            return;
+        }
+
         try{
             setLoading(true);
             const res=await api.post('/auth/login',{email,password});
@@ -62,29 +73,32 @@ const Login = () => {
     }
 
   return (
-    <div  className='max-w-md mx-auto mt-10 bg-white p-6 rounded shadow-md'>
-        <h2 className='text-xl font-bold mb-4'>Login</h2>
+    <div  className='max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-md'>
+        <h2 className='text-2xl font-bold text-center mb-6'>Login</h2>
         <form onSubmit={handleSubmit} autoComplete='on'>
-        <input className='w-full p-2 border rounded mb-3' type='email' name='email' value={formData.email} 
-        placeholder='Enter email' onChange={handleChange}/>
 
-        <div className='relative mb-3'>
-            <input className='w-full p-2 border rounded pr-10' type={showPassword?'text':'password'} 
+        <input className="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none 
+        focus:ring-2 focus:ring-blue-500"type='email' name='email' value={formData.email} 
+        autoFocusplaceholder='Enter email' onChange={handleChange}/>
+
+        <div className='relative mb-4'>
+            <input className='w-full p-3 border border-gray-300 rounded pr-10 focus:outline-none
+            focus:ring-2 focus:ring-blue-500' type={showPassword?'text':'password'} 
             name='password' value={formData.password} placeholder='Enter password' 
             onChange={handleChange}/>
 
-            <span className="absolute right-3 top-2 text-sm cursor-pointer text-blue-600"
+            <span className="absolute right-3 top-3 text-sm cursor-pointer text-blue-600 select-none"
             onClick={()=>setShowPassword((prev)=>!prev)}>
                 {showPassword?'Hide':'Show'}
             </span>
-
         </div>
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded" 
-        disabled={loading} type='submit'>{loading?'Logging In':'Login'}</button>
+
+        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition 
+        duration-200" disabled={loading} type='submit'>{loading?'Logging In':'Login'}</button>
     </form>
 
-    <p className='mt-4 text-sm text-center'>Don't have any Account?{" "}
-    <span className='text-blue-500 hover:underline cursor-pointer' onClick={()=>navigate('/register')}>
+    <p className="mt-4 text-sm text-center text-gray-600">Don't have any Account?{" "}
+    <span className="text-blue-500 hover:underline cursor-pointer" onClick={()=>navigate('/register')}>
         Register Here
     </span>
     </p>
