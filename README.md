@@ -1,8 +1,8 @@
-# 💼 JobTrackr
+## 💼 JobTrackr
 
 A full-stack job tracking app to manage and visualize your job applications — from applied to offer!
 
-## ✨ Features
+### ✨ Features
 --------------------------------------
 | Feature              | Status      |
 |----------------------|-------------|
@@ -17,38 +17,46 @@ A full-stack job tracking app to manage and visualize your job applications — 
 | Live Notifications   | 🔜 Upcoming |
 --------------------------------------
 
----
 
-## 🚀 Live Demo
+### 🚀 Live Demo
 
 🌐 **Frontend:** [Vercel Link](https://jobtrackr-git-master-mk00786s-projects.vercel.app)  
 🔗 **Backend:** [Render Link](https://jobtrackr-e7ve.onrender.com)
 
 🧪 **Test Credentials**  
+
 Email: shinchan@abc.com
+
 Password: shinchan
 
----
-
-## 📂 Folder Structure
+### 📂 Folder Structure
 
 /client
+
 ├── components
+
 ├── context
+
 ├── pages
+
 ├── App.jsx
+
 ├── main.jsx
 
 /server
+
 ├── controllers
+
 ├── models
+
 ├── routes
+
 ├── middlewares
+
 ├── server.js
 
----
 
-## ⚙️ Tech Stack
+### ⚙️ Tech Stack
 
 **Frontend:**
 - React + React Router
@@ -63,9 +71,7 @@ Password: shinchan
 - JWT Auth
 - Render Deployment
 
----
-
-## 🧠 How It Works
+### 🧠 How It Works
 
 - Register/Login securely with JWT.
 - Add jobs with title, company, location, and status.
@@ -73,44 +79,48 @@ Password: shinchan
 - View real-time stats by application status.
 - Responsive UI with route protection.
 
----
+### 🛠️ Installation (Locally)
 
-## 🛠️ Installation (Locally)
-
-```bash
-# Clone the repo
+#### Clone the repo
 git clone https://github.com/yourusername/jobtrackr.git
 
-# Backend setup
+#### Backend setup
+
 cd server
 npm install
 npm run dev
 
-# Frontend setup
+#### Frontend setup
+
 cd ../client
 npm install
 npm run dev
 
-📝 .env.example
+#### 📝 .env.example
 
 server/.env
 
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_jwt_secret
 
 client/.env
+
 VITE_API_URL=http://localhost:5000
 
----
 
-## 📈 Future Plans	
+#### 📈 Future Plans	
 
 📊 Charts for status breakdowns
+
 🌙 Dark mode
+
 📩 Email notifications
+
 📱 Mobile app version (React Native)
 
-## 🤝 Contributing
+
+### 🤝 Contributing
 PRs are welcome! Clone, add a feature, and submit a PR.
 
 ## 📧 Contact
