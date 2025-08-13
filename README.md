@@ -29,6 +29,31 @@ Email: shinchan@abc.com
 
 Password: shinchan
 
+### Screenshots
+
+#### Register Page-
+
+<img width="1911" height="887" alt="image" src="https://github.com/user-attachments/assets/cd205947-07be-433e-806b-cc850df29653" />
+
+
+#### Login Page-
+
+<img width="1911" height="887" alt="image" src="https://github.com/user-attachments/assets/7bfce35f-cd32-4598-8161-ac6adbc64891" />
+
+
+#### Dashboard Page-
+
+<img width="1911" height="887" alt="image" src="https://github.com/user-attachments/assets/ab5882c8-452a-4694-8e6c-8cbe74c68f62" />
+
+
+#### Add a Job Page-
+
+<img width="1911" height="887" alt="image" src="https://github.com/user-attachments/assets/4c71f1ec-d004-4fea-a77d-b2a7a9f31dd7" />
+
+#### Stats Page-
+
+<img width="1911" height="887" alt="image" src="https://github.com/user-attachments/assets/c1ae952f-6b4c-4418-b259-a03c994492c6" />
+
 ### 📂 Folder Structure
 
 /client
