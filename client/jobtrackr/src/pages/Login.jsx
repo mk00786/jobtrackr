@@ -79,7 +79,7 @@ const Login = () => {
 
         <input className="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none 
         focus:ring-2 focus:ring-blue-500"type='email' name='email' value={formData.email} 
-        autoFocusplaceholder='Enter email' onChange={handleChange}/>
+        autoFocus placeholder='Enter email' onChange={handleChange}/>
 
         <div className='relative mb-4'>
             <input className='w-full p-3 border border-gray-300 rounded pr-10 focus:outline-none
